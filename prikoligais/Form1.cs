@@ -28,26 +28,13 @@ namespace prikoligais
 
         private void registracijas_podzina_Click(object sender, EventArgs e)
         {
-            if (svars.Text != "")
-            {
-                PievienotFiziskoAktivitati();
-                PievienotLietotaju();
-                PievienotMiegu();
-                PievienotUzturu();
-
-                MessageBox.Show("Informācija mēmākā, jaunākā ievadīta!");
-            }
-            else
-            {
-                MessageBox.Show("Lūdzu aizpildiet dotos laukus!");
-            }
         }
 
         private void PievienotFiziskoAktivitati()
         {
             SQLiteConnection sqlite_conn = datubazes_konekcija();
             SQLiteCommand sqlite_cmd = sqlite_conn.CreateCommand();
-            sqlite_cmd.CommandText = "INSERT INTO fiziska_aktivitate (akt_veids, akt_ilgums) VALUES('" + this.akt_veids.Text + "', '" + this.akt_ilgums.Text + "') ";
+            sqlite_cmd.CommandText = "INSERT INTO fiziska_aktivitate (akt_veids, akt_ilgums) VALUES('" + this.akt_veids.Text + "', '" + this.akt_ilgums.Text + "')";
             sqlite_cmd.ExecuteNonQuery();
         }
 
@@ -71,7 +58,9 @@ namespace prikoligais
         {
             SQLiteConnection sqlite_conn = datubazes_konekcija();
             SQLiteCommand sqlite_cmd = sqlite_conn.CreateCommand();
-            sqlite_cmd.CommandText = "INSERT INTO uzturs (kalorijas, ediens, izdevumi) VALUES('" + this.kalorijas.Text + this.ediens.Text + this.izdevumi.Text + "') ";
+
+            sqlite_cmd.CommandText = "INSERT INTO uzturs (kalorijas, ediens, izdevumi) VALUES ('" + this.kalorijas.Text + "', '" + this.ediens.Text + "', '" + this.izdevumi.Text + "')";
+
             sqlite_cmd.ExecuteNonQuery();
         }
 
@@ -83,6 +72,23 @@ namespace prikoligais
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void registracijas_podzina_Click_1(object sender, EventArgs e)
+        {
+            PievienotUzturu();
+            PievienotFiziskoAktivitati();
+            PievienotLietotaju();
+            PievienotMiegu();
+
+            MessageBox.Show("Dati veiksmīgi ievadīti!");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Datu_apskate f2 = new Datu_apskate();
+            f2.Show();
+            Visible = false;
         }
     }
 }

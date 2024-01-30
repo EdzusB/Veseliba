@@ -53,6 +53,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.ieteikumi = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // akt_veids
@@ -115,12 +116,13 @@
             // 
             // registracijas_podzina
             // 
-            this.registracijas_podzina.Location = new System.Drawing.Point(578, 320);
+            this.registracijas_podzina.Location = new System.Drawing.Point(575, 276);
             this.registracijas_podzina.Name = "registracijas_podzina";
-            this.registracijas_podzina.Size = new System.Drawing.Size(179, 76);
+            this.registracijas_podzina.Size = new System.Drawing.Size(179, 57);
             this.registracijas_podzina.TabIndex = 2;
             this.registracijas_podzina.Text = "Reģistrēt";
             this.registracijas_podzina.UseVisualStyleBackColor = true;
+            this.registracijas_podzina.Click += new System.EventHandler(this.registracijas_podzina_Click_1);
             // 
             // akt_ilgums
             // 
@@ -256,12 +258,23 @@
             this.ieteikumi.TabIndex = 4;
             this.ieteikumi.Text = "";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(575, 340);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(179, 57);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Nākamā lapa";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(786, 400);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ieteikumi);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
@@ -320,6 +333,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.RichTextBox ieteikumi;
+        private System.Windows.Forms.Button button1;
     }
 }
 
